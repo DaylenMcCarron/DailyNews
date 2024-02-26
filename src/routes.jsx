@@ -5,6 +5,7 @@ import Header from "./components/header"
 import Contact from "./components/contact"
 
 import MainLayout from "./layouts/mainLayout"
+import PostComponent from "./components/posts"
 
 const Router = () => {
 
@@ -15,6 +16,7 @@ const Router = () => {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="contact" element={<Contact/>} />
+          <Route path="article/:id" element={<PostComponent/>} />
         </Routes>
       </MainLayout>
     </BrowserRouter>
