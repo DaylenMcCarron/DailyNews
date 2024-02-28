@@ -1,8 +1,12 @@
 import { useFormik } from "formik"
 import * as  Yup from 'yup'
 import { Alert } from "react-bootstrap"
+import { useDispatch } from "react-redux"
+import { sendMessage } from "../../store/utils/thunks"
+import { showToast } from "../utils/tools"
 
 const Contact = () => {
+    const dispatch = useDispatch();
 
     const formik = useFormik({
         initialValues:{
@@ -24,7 +28,17 @@ const Contact = () => {
              .max(500,'Max message 500 characters')
         }),
         onSubmit:(values,{resetForm})=> {
-            console.log(values)
+            dispatch(sendMessage(values))
+            .unwrap()
+            .then(response=> {
+                if(response){
+                    resetForm();
+                    showToast('SUCCESS', 'Thankyou! We will contact you :)')
+                }
+            })
+            .catch(err=>{
+                showToast('ERROR', 'Sorry, Try again later :(')
+            })
         }
     })
 
