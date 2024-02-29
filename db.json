@@ -201,7 +201,20 @@
       "createdAt": "2020-07-22T12:59-0500"
     }
   ],
-  "newsletter": [],
+  "newsletter": [
+    {
+      "email": "qatest@evisort.com",
+      "id": 1
+    },
+    {
+      "email": "",
+      "id": 2
+    },
+    {
+      "email": "hbksgp@gmail.com",
+      "id": 3
+    }
+  ],
   "contact": [
     {
       "email": "daylenricardomccarron@gmail.com",
